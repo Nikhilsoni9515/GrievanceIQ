@@ -1,0 +1,44 @@
+{
+  "name": "bharatchain-governance",
+  "version": "1.0.0",
+  "description": "Blockchain-based digital governance platform for India",
+  "main": "server/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "test": "cd server && npm test && cd ../client && npm test",
+    "compile": "npx hardhat --config blockchain/hardhat.config.js compile",
+    "deploy": "npx hardhat run scripts/deploy.js --network localhost --config blockchain/hardhat.config.js",
+    "deploy:mumbai": "npx hardhat run scripts/deploy.js --network mumbai --config blockchain/hardhat.config.js",
+    "test:contracts": "npx hardhat --config blockchain/hardhat.config.js test",
+    "node": "npx hardhat --config blockchain/hardhat.config.js node",
+    "setup": "npm install && cd client && npm install && cd ../server && npm install"
+  },
+  "keywords": [
+    "blockchain",
+    "governance",
+    "ethereum",
+    "react",
+    "nodejs"
+  ],
+  "author": "BharatChain Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "concurrently": "^8.2.2",
+    "hardhat": "^2.19.4"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0",
+    "axios": "^1.11.0",
+    "dotenv": "^16.6.1",
+    "ethers": "^6.15.0",
+    "form-data": "^4.0.4",
+    "joi": "^18.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  }
+}
